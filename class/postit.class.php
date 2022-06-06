@@ -212,9 +212,9 @@ class PostIt extends CommonObject
 
 		global $db;
 
-		$sql = "SELECT rowid FROM " . MAIN_DB_PREFIX . "postit
-		WHERE (fk_user=" . $fk_user . " OR fk_user_todo=" . $fk_user . " OR status IN ('" . self::STATUS_PUBLIC . "', '" . self::STATUS_SHARED . "') )
-		AND (fk_object=" . $fk_object . " OR status='" . self::STATUS_SHARED . "') AND type_object='" . $type_object . "' ORDER BY rowid";
+		$sql = "SELECT rowid FROM " . MAIN_DB_PREFIX . "postit "
+				." WHERE (fk_user=" .  intval($fk_user) . " OR fk_user_todo=" . intval($fk_user) . " OR status IN ('" . self::STATUS_PUBLIC . "', '" . self::STATUS_SHARED . "') ) "
+				." AND (fk_object='" . intval($fk_object) . "' OR status='" . self::STATUS_SHARED . "') AND type_object='" . $db->escape($type_object) . "' ORDER BY rowid";
 
 		$res = $db->query($sql);
 
