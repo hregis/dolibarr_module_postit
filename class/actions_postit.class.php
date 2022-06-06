@@ -212,8 +212,6 @@ class ActionsPostIt
                     url:"<?php echo dol_buildpath('/postit/script/interface.php',1) ?>"
                     ,data: {
                         put:'postit'
-                        ,height:200
-                        ,width:200
                         ,fk_postit:fk_postit
                         ,fk_object:<?php echo $fk_object ?>
                         ,type_object:"<?php echo $type_object ?>"
